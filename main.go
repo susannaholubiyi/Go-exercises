@@ -10,7 +10,8 @@ func main() {
 	//addition()
 	//gasMilleage()
 	//creditLimitCalculator()
-	salesCommissionCalculator()
+	//salesCommissionCalculator()
+	largestNumber()
 
 }
 func addition() {
@@ -125,6 +126,21 @@ func salesCommissionCalculator() {
 
 	fmt.Printf("\nYour commission is $%.2f", finalCommission)
 }
-func taxCalculator() {
 
+func largestNumber() {
+	largest := 0
+	fmt.Println("Enter 10 numbers to determine the largest")
+	for index := 0; index < 10; index++ {
+		var number int
+		fmt.Println("Enter number: ")
+		_, err := fmt.Scanf("%d", &number)
+		if err != nil {
+			fmt.Println("Error: ", err)
+			break
+		}
+		if index == 0 || number > largest {
+			largest = number
+		}
+	}
+	fmt.Printf("\nThe largest number you entered is %d", largest)
 }
