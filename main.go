@@ -11,7 +11,8 @@ func main() {
 	//gasMilleage()
 	//creditLimitCalculator()
 	//salesCommissionCalculator()
-	largestNumber()
+	//largestNumber()
+	rightAngledTriangle()
 
 }
 func addition() {
@@ -143,4 +144,23 @@ func largestNumber() {
 		}
 	}
 	fmt.Printf("\nThe largest number you entered is %d", largest)
+}
+
+func rightAngledTriangle() {
+	var baseLength int
+	fmt.Println("Enter the length of the base of the triangle you want to draw, length should be between 1 and 10: ")
+	_, err := fmt.Scanf("%d", &baseLength)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
+	if baseLength < 1 || baseLength > 10 {
+		fmt.Println("Invalid input. Base length should be between 1 and 10")
+		return
+	}
+	for index := 1; index <= baseLength; index++ {
+		for index2 := 1; index2 <= index; index2++ {
+			fmt.Print("*")
+		}
+		fmt.Println()
+	}
 }
