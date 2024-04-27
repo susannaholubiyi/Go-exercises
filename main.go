@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -12,7 +13,8 @@ func main() {
 	//creditLimitCalculator()
 	//salesCommissionCalculator()
 	//largestNumber()
-	rightAngledTriangle()
+	//rightAngledTriangle()
+	isPalindrome()
 
 }
 func addition() {
@@ -163,4 +165,30 @@ func rightAngledTriangle() {
 		}
 		fmt.Println()
 	}
+}
+func isPalindrome() bool {
+	var fiveDigitNumber string
+	fmt.Println("Enter a five digit number to determine if it is a palindrome")
+	_, err := fmt.Scanf("%s", &fiveDigitNumber)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return false
+	}
+	if len(fiveDigitNumber) != 5 {
+		fmt.Println("Enter a five digit number")
+		return false
+	}
+	_, err2 := strconv.Atoi(fiveDigitNumber)
+	if err2 != nil {
+		fmt.Println("Error:", err2)
+	}
+
+	for index := 0; index < len(fiveDigitNumber)/2; index++ {
+		if fiveDigitNumber[index] != fiveDigitNumber[len(fiveDigitNumber)-index-1] {
+			fmt.Println("Is not a palindrome")
+			return false
+		}
+	}
+	fmt.Println("Is a palindrome")
+	return true
 }
